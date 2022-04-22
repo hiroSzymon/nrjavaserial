@@ -754,6 +754,30 @@ public class RXTXCommDriver implements CommDriver
 						};
 						CandidatePortPrefixes=Temp;
 					}
+                    else if(osName.equals("OpenBSD")) //FIXME this is probably wrong
+					{
+						String[] Temp = {
+                            "cua0",    //general purpose serial ports
+							"ttyd",    //general purpose serial ports
+							"cuaa",    //dialout serial ports
+							"ttyA",    //Specialix SI/XIO dialin ports
+							"cuaA",    //Specialix SI/XIO dialout ports
+							"ttyu",    //general purpose usb serial ports
+							"cuau",    //dialout usb serial ports
+							"ttyU",    //Specialix SI/XIO usb dialin ports
+							"cuaU",    //Specialix SI/XIO usb dialout ports
+							"ttyD",    //Digiboard - 16 dialin ports
+							"cuaD",    //Digiboard - 16 dialout ports
+							"ttyE",    //Stallion EasyIO (stl) dialin ports
+							"cuaE",    //Stallion EasyIO (stl) dialout ports
+							"ttyF",    //Stallion Brumby (stli) dialin ports
+							"cuaF",    //Stallion Brumby (stli) dialout ports
+							"ttyR",    //Rocketport dialin ports
+							"cuaR",    //Rocketport dialout ports
+							"stl"      //Stallion EasyIO board or Brumby N 
+						};
+						CandidatePortPrefixes=Temp;
+					}
 					else if(osName.equals("NetBSD")) // FIXME this is probably wrong
 					{
 						String[] Temp = {
