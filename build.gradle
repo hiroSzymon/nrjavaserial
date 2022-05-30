@@ -7,6 +7,7 @@ apply plugin: 'java'
 apply plugin: 'eclipse'
 apply plugin: 'maven'
 apply plugin: 'signing'
+apply plugin: 'maven-publish'
 
 [compileJava, compileTestJava]*.options*.encoding = 'UTF-8'
 
@@ -91,6 +92,23 @@ spotless {
 		importOrder()
 		removeUnusedImports()
 		eclipse()
+	}
+}
+
+publishing {
+	publications {
+		maven(MavenPublication) {
+			from components.java
+		}
+	}
+	repositories {
+		maven {
+			url = 'http://10.60.7.16:32768/releases'
+			credentials {
+				username = 'root'
+				password = '8Pu2qFG2U4u9wi0hfbKwOah4WzwxIG5l8C+AhkX5PhhvglB2yHYi6LuQo8zz+CPz'
+			}
+		}
 	}
 }
 /*
